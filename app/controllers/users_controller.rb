@@ -21,9 +21,12 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-    	log_in @user
-    	flash[:success] = "Welcome to VRAppstore ! "
-      	redirect_to @user
+    	# log_in @user
+    	# flash[:success] = "Welcome to VRAppstore ! "
+      @user.send_activation_email
+      flash[:info] = "Please make sure you email to active you account" 
+      redirect_to root_url
+      	# redirect_to @user
     else
       render 'new'
     end

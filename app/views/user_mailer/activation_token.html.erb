@@ -1,0 +1,12 @@
+
+<h1>VRAppstore</h1>
+
+
+<p>Hi <%= @user.name %></p>
+
+
+<p>Welcome to the VRAppstore, Click the link below to activate you account</p>
+
+<%= edit_account_activation_url(@user.activation_token, email: @user.email) %>
+
+<%= link_to "Activate", edit_account_activation_url(@user.activation_token, email: @user.email) %>

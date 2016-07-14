@@ -1,0 +1,6 @@
+
+Hi <%= @user.name %>
+
+Welcome to the VRAppstore, Click the link below to activate you account
+
+<%= edit_account_activation_url(@user.activation_token, email: @user.email) %>
